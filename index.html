@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7f3ee">
 
 <title>Dilhara & Deelaka | Wedding Seating</title>
 
@@ -14,90 +16,105 @@
 
 body {
     margin: 0;
+    background: #f7f3ee;
+    color: #3d3935;
     font-family: Georgia, "Times New Roman", serif;
-    background: #f8f5f1;
-    color: #333;
 }
 
-.container {
-    width: 92%;
-    max-width: 760px;
-    margin: auto;
+/* MAIN BACKGROUND */
+
+.hero {
+    min-height: 100vh;
+    padding: 35px 18px 50px;
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            #ffffff 0%,
+            #f7f3ee 50%,
+            #ebe1d7 100%
+        );
 }
 
 /* HEADER */
 
 header {
     text-align: center;
-    padding: 55px 20px 35px;
-    background: #f8f5f1;
+    padding: 30px 10px 25px;
 }
 
 .small-title {
-    font-size: 13px;
-    letter-spacing: 4px;
+    font-size: 12px;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    color: #777;
-    margin-bottom: 18px;
+    color: #8c7b6b;
+    margin-bottom: 20px;
 }
 
 .names {
     font-size: 42px;
-    letter-spacing: 2px;
-    margin: 0;
     font-weight: normal;
+    margin: 0;
+    color: #3d3935;
+    letter-spacing: 1px;
 }
 
 .ampersand {
-    font-size: 25px;
-    margin: 8px 0;
-    color: #999;
+    font-size: 24px;
+    color: #a49484;
+    margin: 10px 0;
 }
 
 .date {
-    font-size: 16px;
-    margin-top: 18px;
-    letter-spacing: 1px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    margin-top: 12px;
 }
 
 .venue {
     font-size: 14px;
-    margin-top: 7px;
     color: #777;
+    margin-top: 7px;
 }
 
-/* DIVIDER */
-
 .divider {
-    width: 70px;
+    width: 55px;
     height: 1px;
-    background: #b8a58f;
-    margin: 28px auto;
+    background: #b9aa9b;
+    margin: 25px auto;
+}
+
+/* CONTAINER */
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
 }
 
 /* INTRO */
 
 .intro {
     text-align: center;
-    line-height: 1.7;
     font-size: 15px;
-    color: #555;
-    margin-bottom: 30px;
+    line-height: 1.7;
+    color: #666;
+    margin: 0 auto 28px;
 }
 
 /* SEARCH CARD */
 
 .search-card {
-    background: white;
+    background: rgba(255,255,255,0.94);
     padding: 30px 25px;
-    border-radius: 14px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+    border-radius: 16px;
+    border: 1px solid #e5ddd5;
+    box-shadow: 0 10px 35px rgba(70,55,40,0.08);
     margin-bottom: 25px;
 }
 
 .search-title {
     text-align: center;
-    font-size: 22px;
+    font-size: 28px;
     margin-bottom: 8px;
 }
 
@@ -105,8 +122,11 @@ header {
     text-align: center;
     color: #777;
     font-size: 14px;
+    line-height: 1.6;
     margin-bottom: 22px;
 }
+
+/* INPUT */
 
 .search-wrapper {
     position: relative;
@@ -114,10 +134,10 @@ header {
 
 #guestName {
     width: 100%;
-    padding: 16px 17px;
+    padding: 17px;
     font-size: 16px;
-    border: 1px solid #d8d1c8;
-    border-radius: 9px;
+    border: 1px solid #d8cec4;
+    border-radius: 10px;
     outline: none;
     font-family: inherit;
     background: #fff;
@@ -133,22 +153,24 @@ header {
     position: absolute;
     left: 0;
     right: 0;
-    top: calc(100% + 4px);
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 9px;
-    max-height: 230px;
+    top: calc(100% + 5px);
+    background: #fff;
+    border: 1px solid #ddd3ca;
+    border-radius: 10px;
+    max-height: 240px;
     overflow-y: auto;
     z-index: 9999;
     display: none;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
 .suggestion {
-    padding: 13px 15px;
+    padding: 14px 15px;
     cursor: pointer;
     border-bottom: 1px solid #eee;
     font-size: 15px;
+    text-align: left;
+    background: #fff;
 }
 
 .suggestion:last-child {
@@ -159,7 +181,7 @@ header {
     background: #f7f3ee;
 }
 
-/* BUTTON */
+/* BUTTONS */
 
 .button-row {
     display: flex;
@@ -169,11 +191,12 @@ header {
 
 button {
     flex: 1;
-    padding: 14px;
+    padding: 15px;
     border: none;
-    border-radius: 8px;
+    border-radius: 9px;
     font-family: inherit;
     font-size: 15px;
+    letter-spacing: 0.5px;
     cursor: pointer;
 }
 
@@ -187,19 +210,24 @@ button {
     color: #555;
 }
 
+button:hover {
+    opacity: 0.9;
+}
+
 /* RESULT */
 
 #result {
     display: none;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 .result-card {
-    background: white;
-    border-radius: 14px;
+    background: #fff;
+    border-radius: 16px;
     padding: 30px 25px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.07);
     text-align: center;
+    border: 1px solid #e5ddd5;
 }
 
 .result-label {
@@ -216,14 +244,14 @@ button {
 }
 
 .guest-found {
-    font-size: 20px;
+    font-size: 19px;
     margin-bottom: 25px;
 }
 
 .table-guests-title {
-    font-size: 16px;
+    font-size: 15px;
     margin-bottom: 12px;
-    color: #666;
+    color: #777;
 }
 
 .guest-list {
@@ -246,33 +274,48 @@ button {
 /* TABLE SEARCH */
 
 .table-search {
-    background: white;
+    background: #fff;
     padding: 25px;
-    border-radius: 14px;
+    border-radius: 16px;
+    border: 1px solid #e5ddd5;
     box-shadow: 0 8px 30px rgba(0,0,0,0.05);
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .table-search h3 {
     text-align: center;
+    font-size: 22px;
     font-weight: normal;
-    margin-top: 0;
+    margin: 0 0 8px;
+}
+
+.table-search p {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 20px;
 }
 
 #tableNumberInput {
     width: 100%;
-    padding: 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #d8cec4;
+    border-radius: 9px;
     font-size: 16px;
     text-align: center;
+    font-family: inherit;
+    outline: none;
+}
+
+#tableNumberInput:focus {
+    border-color: #9e8b76;
 }
 
 /* TABLE RESULT */
 
 #tableResult {
     display: none;
-    margin-top: 20px;
+    margin-top: 22px;
 }
 
 .table-result-box {
@@ -284,6 +327,7 @@ button {
     font-size: 25px;
     margin: 0 0 15px;
     text-align: center;
+    font-weight: normal;
 }
 
 .table-result-box ul {
@@ -295,13 +339,14 @@ button {
 .table-result-box li {
     padding: 10px;
     border-bottom: 1px solid #eee;
+    font-size: 15px;
 }
 
 /* MESSAGE */
 
 .message {
     text-align: center;
-    padding: 15px 5px 45px;
+    padding: 10px 5px 30px;
     color: #666;
     line-height: 1.7;
     font-size: 14px;
@@ -311,8 +356,7 @@ button {
 
 footer {
     text-align: center;
-    padding: 25px;
-    border-top: 1px solid #e5dfd8;
+    padding: 20px;
     color: #999;
     font-size: 12px;
     letter-spacing: 1px;
@@ -322,31 +366,59 @@ footer {
 
 @media (max-width: 600px) {
 
+    .hero {
+        padding: 20px 14px 40px;
+    }
+
     header {
-        padding-top: 40px;
+        padding-top: 25px;
     }
 
     .names {
-        font-size: 32px;
+        font-size: 34px;
+    }
+
+    .small-title {
+        font-size: 11px;
+        letter-spacing: 4px;
     }
 
     .search-card,
     .result-card,
     .table-search {
-        padding: 22px 18px;
+        padding: 24px 18px;
+    }
+
+    .search-title {
+        font-size: 25px;
     }
 
     .table-number {
-        font-size: 42px;
+        font-size: 43px;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
+
+
+<section class="hero">
+
+
+<!-- HEADER -->
 
 <header>
 
@@ -372,159 +444,167 @@ footer {
 
     <div class="divider"></div>
 
-    <div class="intro">
-        Dear Family & Friends,<br><br>
-
-        We are so excited to celebrate our special day with you! 🤍
-        <br>
-        To make your arrival easier, please check your assigned
-        table below.
-    </div>
-
 </header>
 
 
 <main class="container">
 
 
-    <!-- GUEST SEARCH -->
+<!-- INTRO -->
 
-    <section class="search-card">
+<p class="intro">
 
-        <div class="search-title">
-            Find Your Table
-        </div>
+    Dear Family & Friends,<br><br>
 
-        <div class="search-subtitle">
-            Enter your name below
-        </div>
+    We are so excited to celebrate our special day with you! 🤍
 
+    <br>
 
-        <div class="search-wrapper">
+    To make your arrival easier, please check your assigned
+    table below.
 
-            <input
-                type="text"
-                id="guestName"
-                placeholder="Type your name..."
-                autocomplete="off"
-            >
-
-            <div id="suggestionBox"></div>
-
-        </div>
+</p>
 
 
-        <div class="button-row">
+<!-- GUEST SEARCH -->
 
-            <button
-                class="find-button"
-                onclick="findGuest()"
-            >
-                Find My Table
-            </button>
+<section class="search-card">
 
-            <button
-                class="clear-button"
-                onclick="clearSearch()"
-            >
-                Clear
-            </button>
+    <div class="search-title">
+        Find Your Table
+    </div>
 
-        </div>
-
-    </section>
+    <div class="search-subtitle">
+        Type your name below and select your name from the suggestions.
+    </div>
 
 
-
-    <!-- RESULT -->
-
-    <section id="result">
-
-        <div class="result-card">
-
-            <div class="result-label">
-                Your Table
-            </div>
-
-            <div
-                id="tableNumber"
-                class="table-number"
-            >
-            </div>
-
-            <div
-                id="guestFound"
-                class="guest-found"
-            >
-            </div>
-
-            <div class="table-guests-title">
-                Guests seated at this table
-            </div>
-
-            <ul
-                id="guestList"
-                class="guest-list"
-            >
-            </ul>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- TABLE SEARCH -->
-
-    <section class="table-search">
-
-        <h3>
-            View a Table
-        </h3>
+    <div class="search-wrapper">
 
         <input
-            type="number"
-            id="tableNumberInput"
-            placeholder="Enter table number"
-            min="1"
-            max="19"
+            type="text"
+            id="guestName"
+            placeholder="Start typing your name..."
+            autocomplete="off"
         >
 
-        <div class="button-row">
-
-            <button
-                class="find-button"
-                onclick="findTable()"
-            >
-                View Table
-            </button>
-
-        </div>
-
-
-        <div id="tableResult">
-
-            <div class="table-result-box">
-
-                <h4 id="tableTitle"></h4>
-
-                <ul id="tableGuestList"></ul>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <div class="message">
-
-        We can't wait to celebrate with you! 🤍
-        <br>
-        Have a wonderful time and enjoy the celebration.
+        <div id="suggestionBox"></div>
 
     </div>
+
+
+    <div class="button-row">
+
+        <button
+            class="find-button"
+            onclick="findGuest()"
+        >
+            FIND MY TABLE
+        </button>
+
+        <button
+            class="clear-button"
+            onclick="clearSearch()"
+        >
+            CLEAR
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- GUEST RESULT -->
+
+<section id="result">
+
+    <div class="result-card">
+
+        <div class="result-label">
+            Your Table
+        </div>
+
+        <div
+            id="tableNumber"
+            class="table-number">
+        </div>
+
+        <div
+            id="guestFound"
+            class="guest-found">
+        </div>
+
+        <div class="table-guests-title">
+            Guests seated at this table
+        </div>
+
+        <ul
+            id="guestList"
+            class="guest-list">
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- TABLE NUMBER SEARCH -->
+
+<section class="table-search">
+
+    <h3>
+        View a Table
+    </h3>
+
+    <p>
+        Or enter your table number
+    </p>
+
+    <input
+        type="number"
+        id="tableNumberInput"
+        placeholder="Example: 05"
+        min="1"
+        max="17"
+    >
+
+    <div class="button-row">
+
+        <button
+            class="find-button"
+            onclick="findTable()"
+        >
+            VIEW TABLE
+        </button>
+
+    </div>
+
+
+    <div id="tableResult">
+
+        <div class="table-result-box">
+
+            <h4 id="tableTitle"></h4>
+
+            <ul id="tableGuestList"></ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MESSAGE -->
+
+<div class="message">
+
+    We are so happy to celebrate with you. 🤍
+    <br>
+    We can't wait to see you!
+
+</div>
+
 
 </main>
 
@@ -536,22 +616,16 @@ footer {
 </footer>
 
 
+</section>
+
 
 <script>
 
+
 /* =====================================================
    WEDDING SEATING DATA
-   =====================================================
-
-   IMPORTANT:
-
-   KEEP YOUR EXISTING SEATING DATA HERE.
-
-   Replace the sample entries below with your complete
-   seating information from your current file.
-
+   TABLES 01 - 17
    ===================================================== */
-
 
 const seating = {
 
@@ -574,35 +648,76 @@ const seating = {
     ],
 
     "03": [
-        /* PUT YOUR TABLE 03 NAMES HERE */
+        "Mr. Pasindu Dilshan",
+        "Ms. Parami",
+        "Ms. Nilani",
+        "Thisali Sethumina",
+        "Kevin Nethusha",
+        "Kemal Renuja",
+        "Sayul",
+        "Nethumi",
+        "Yugeeth",
+        "Sageeth"
     ],
 
     "04": [
-        /* PUT YOUR TABLE 04 NAMES HERE */
+        "Mr. & Mrs Abeysingha Pathirana",
+        "Mr. & Mrs Niroshan Rajapaksha",
+        "Damindu Viduranga",
+        "Mr. Sumith Jayalal & family",
+        "Mrs. Pathmi Guruge",
+        "Mrs. Amarawathi"
     ],
 
     "05": [
-        /* PUT YOUR TABLE 05 NAMES HERE */
+        "Ms. Akila Nimni Jayawardane",
+        "Mr. & Mrs Kaluthara & family",
+        "Mr. & Mrs Abeygunawardane & family",
+        "Mr. & Mrs Viraj De Silva & family"
     ],
 
     "06": [
-        /* PUT YOUR TABLE 06 NAMES HERE */
+        "Mrs. Pathmini Nanayakkarawasan",
+        "Mr. Ajith De Silva",
+        "Mr. & Mrs Chandrasiri Nanayakkarawasan",
+        "Mr. & Mrs Premasiri Nanayakkarawasan",
+        "Mr. & Mrs Ariyarathne Nanayakkarawasan",
+        "Mrs. Shanthi Nanayakkarawasan",
+        "Mr. Dayarathne"
     ],
 
     "07": [
-        /* PUT YOUR TABLE 07 NAMES HERE */
+        "Mrs. Monika Rodrigo & family",
+        "Mr. & Mrs. Wasantha Rodrigo",
+        "Mr. & Mrs. Kapila Rodrigo",
+        "Mrs. Dhanaseeli De Silva",
+        "Mrs. Shanthi De Silva"
     ],
 
     "08": [
-        /* PUT YOUR TABLE 08 NAMES HERE */
+        "Mrs. Ramya Mendis",
+        "Mrs. Sachi Prashani & family",
+        "Mr. & Mrs. Sripal (Lokka mama)",
+        "Mr. Wickramasinghe & Mrs. Nikini",
+        "Mr. & Mrs. Harischandra & family"
     ],
 
     "09": [
-        /* PUT YOUR TABLE 09 NAMES HERE */
+        "Mrs. Ginige & Mr. Ravindra",
+        "Mrs. Ashelma Gunasekara",
+        "Mrs. Chandani & family",
+        "Mr. Cency & family",
+        "Mr. Shantha De Silva"
     ],
 
     "10": [
-        /* PUT YOUR TABLE 10 NAMES HERE */
+        "Mrs. Soma Dissanayake",
+        "Mrs. Inoka dissanayake & family",
+        "Mrs. Rasika Dissanayake & family",
+        "Mr. Pradeep & Mrs. Wijesinghe",
+        "Mrs. Kalyani (Nona)",
+        "Mr.Sanjeewa & Mrs Daneshika",
+        "Mrs. Pushpa"
     ],
 
     "11": [
@@ -634,46 +749,58 @@ const seating = {
     ],
 
     "14": [
-        /* PUT YOUR TABLE 14 NAMES HERE */
+        "Mr. Lalith Helambage & family",
+        "Mr. Levan Helambage & family",
+        "Mr. Chalitha Helambage & family"
     ],
 
     "15": [
-        /* PUT YOUR TABLE 15 NAMES HERE */
+        "Mr. & Mrs Sithum Weerasinghe",
+        "Mr. Weerasinghe & family",
+        "Mr. Ranul Deelaka",
+        "Mr. Dinith Gunawardane",
+        "Mr. Ravindu & family",
+        "Mr. & Mrs. Tharindu Gishan"
     ],
 
     "16": [
-        /* PUT YOUR TABLE 16 NAMES HERE */
+        "Mr. Chamod Sahantha",
+        "Mr. Dhanuka Gamage",
+        "Mr. Pasan Tharinda",
+        "Mr. Mavindu Nethsara",
+        "Mr. Hirun Abrew",
+        "Mr. Malith Sandaru",
+        "Mr. Madushitha Mendis",
+        "Mr. Ovin Janitha",
+        "Ashan Lakshitha",
+        "Mr. Tharush De Silva"
     ],
 
     "17": [
-        /* PUT YOUR TABLE 17 NAMES HERE */
-    ],
-
-    "18": [
-        /* PUT YOUR TABLE 18 NAMES HERE */
-    ],
-
-    "19": [
-        /* PUT YOUR TABLE 19 NAMES HERE */
+        "Mr. & Mrs. Indika De silva (Shoi akka)",
+        "Mrs. Indra (Podi Achchi)",
+        "Mr. & Mrs. Dimuthu Kushan (Anju Nanda)",
+        "Mr. & Mrs. Indika Kusalapriya"
     ]
 
 };
 
 
 /* =====================================================
-   NAME CLEANING
+   CLEAN NAME
+   Makes searching easier
    ===================================================== */
 
 function cleanName(name) {
 
     return String(name || "")
         .toLowerCase()
-        .replace(/mrs\.?/g, "")
-        .replace(/mr\.?/g, "")
-        .replace(/ms\.?/g, "")
-        .replace(/&/g, "")
-        .replace(/family/g, "")
-        .replace(/[(),']/g, "")
+        .replace(/mrs\.?/g, " ")
+        .replace(/mr\.?/g, " ")
+        .replace(/ms\.?/g, " ")
+        .replace(/&/g, " ")
+        .replace(/family/g, " ")
+        .replace(/[().,'’]/g, " ")
         .replace(/\s+/g, " ")
         .trim();
 
@@ -681,120 +808,25 @@ function cleanName(name) {
 
 
 /* =====================================================
-   FIND TABLE FOR GUEST
+   GUEST INPUT
    ===================================================== */
 
-function findGuest() {
+const guestInput =
+    document.getElementById("guestName");
 
-    const input = document.getElementById("guestName");
-
-    const typed = cleanName(input.value);
-
-    if (!typed) {
-        alert("Please enter your name.");
-        return;
-    }
-
-    let foundTable = null;
-    let foundGuest = null;
-
-    for (const table in seating) {
-
-        for (const guest of seating[table]) {
-
-            if (cleanName(guest).includes(typed)) {
-
-                foundTable = table;
-                foundGuest = guest;
-
-                break;
-            }
-
-        }
-
-        if (foundTable) {
-            break;
-        }
-    }
-
-
-    if (!foundTable) {
-
-        document.getElementById("result").style.display = "none";
-
-        alert(
-            "Sorry, we couldn't find that name. Please check the spelling or try another part of your name."
-        );
-
-        return;
-    }
-
-
-    showTable(foundTable, foundGuest);
-
-}
+const suggestionBox =
+    document.getElementById("suggestionBox");
 
 
 /* =====================================================
-   SHOW TABLE
+   LIVE NAME SUGGESTIONS
    ===================================================== */
 
-function showTable(table, guest) {
-
-    const result = document.getElementById("result");
-
-    const tableNumber = document.getElementById("tableNumber");
-
-    const guestFound = document.getElementById("guestFound");
-
-    const guestList = document.getElementById("guestList");
-
-
-    tableNumber.textContent = "Table " + parseInt(table);
-
-    guestFound.textContent = guest;
-
-
-    guestList.innerHTML = "";
-
-
-    seating[table].forEach(function(name) {
-
-        const li = document.createElement("li");
-
-        li.textContent = name;
-
-        guestList.appendChild(li);
-
-    });
-
-
-    result.style.display = "block";
-
-
-    result.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-}
-
-
-/* =====================================================
-   NAME AUTOCOMPLETE
-   ===================================================== */
-
-const guestInput = document.getElementById("guestName");
-
-const suggestionBox = document.getElementById("suggestionBox");
-
-
-guestInput.addEventListener("input", function() {
+guestInput.addEventListener("input", function () {
 
     const typed = cleanName(this.value);
 
     suggestionBox.innerHTML = "";
-
 
     if (!typed) {
 
@@ -806,6 +838,8 @@ guestInput.addEventListener("input", function() {
 
     const matches = [];
 
+
+    /* Search every table */
 
     for (const table in seating) {
 
@@ -834,9 +868,10 @@ guestInput.addEventListener("input", function() {
     const seen = new Set();
 
 
-    matches.forEach(function(item) {
+    matches.forEach(function (item) {
 
-        const key = item.name.toLowerCase();
+        const key =
+            item.name.toLowerCase();
 
         if (!seen.has(key)) {
 
@@ -849,30 +884,41 @@ guestInput.addEventListener("input", function() {
     });
 
 
-    /* Show maximum 10 suggestions */
+    /* Show suggestions */
 
     uniqueMatches
         .slice(0, 10)
-        .forEach(function(item) {
+        .forEach(function (item) {
 
-            const div = document.createElement("div");
+            const div =
+                document.createElement("div");
 
             div.className = "suggestion";
 
-            div.textContent = item.name;
+            div.textContent =
+                item.name;
 
 
-            div.addEventListener("click", function() {
+            div.addEventListener(
+                "click",
+                function () {
 
-                guestInput.value = item.name;
+                    guestInput.value =
+                        item.name;
 
-                suggestionBox.innerHTML = "";
+                    suggestionBox.innerHTML =
+                        "";
 
-                suggestionBox.style.display = "none";
+                    suggestionBox.style.display =
+                        "none";
 
-                showTable(item.table, item.name);
+                    showTable(
+                        item.table,
+                        item.name
+                    );
 
-            });
+                }
+            );
 
 
             suggestionBox.appendChild(div);
@@ -880,13 +926,17 @@ guestInput.addEventListener("input", function() {
         });
 
 
-    if (suggestionBox.children.length > 0) {
+    if (
+        suggestionBox.children.length > 0
+    ) {
 
-        suggestionBox.style.display = "block";
+        suggestionBox.style.display =
+            "block";
 
     } else {
 
-        suggestionBox.style.display = "none";
+        suggestionBox.style.display =
+            "none";
 
     }
 
@@ -894,40 +944,162 @@ guestInput.addEventListener("input", function() {
 
 
 /* =====================================================
-   CLOSE SUGGESTIONS WHEN CLICKING OUTSIDE
+   FIND GUEST
    ===================================================== */
 
-document.addEventListener("click", function(event) {
+function findGuest() {
 
-    if (
-        !guestInput.contains(event.target) &&
-        !suggestionBox.contains(event.target)
+    const typed =
+        cleanName(
+            guestInput.value
+        );
+
+
+    if (!typed) {
+
+        alert(
+            "Please enter your name."
+        );
+
+        return;
+    }
+
+
+    let foundTable = null;
+    let foundGuest = null;
+
+
+    for (
+        const table in seating
     ) {
 
-        suggestionBox.style.display = "none";
+        for (
+            const guest of seating[table]
+        ) {
+
+            if (
+                cleanName(guest)
+                    .includes(typed)
+            ) {
+
+                foundTable =
+                    table;
+
+                foundGuest =
+                    guest;
+
+                break;
+
+            }
+
+        }
+
+
+        if (foundTable) {
+            break;
+        }
 
     }
 
-});
+
+    if (!foundTable) {
+
+        document.getElementById(
+            "result"
+        ).style.display = "none";
+
+
+        alert(
+            "Sorry, we couldn't find that name. Please try another part of your name."
+        );
+
+        return;
+    }
+
+
+    showTable(
+        foundTable,
+        foundGuest
+    );
+
+}
 
 
 /* =====================================================
-   ENTER KEY
+   SHOW GUEST TABLE
    ===================================================== */
 
-guestInput.addEventListener("keydown", function(event) {
+function showTable(
+    table,
+    guest
+) {
 
-    if (event.key === "Enter") {
+    const result =
+        document.getElementById(
+            "result"
+        );
 
-        event.preventDefault();
 
-        suggestionBox.style.display = "none";
+    const tableNumber =
+        document.getElementById(
+            "tableNumber"
+        );
 
-        findGuest();
 
-    }
+    const guestFound =
+        document.getElementById(
+            "guestFound"
+        );
 
-});
+
+    const guestList =
+        document.getElementById(
+            "guestList"
+        );
+
+
+    tableNumber.textContent =
+        "Table " +
+        parseInt(table);
+
+
+    guestFound.textContent =
+        guest;
+
+
+    guestList.innerHTML =
+        "";
+
+
+    seating[table].forEach(
+        function (name) {
+
+            const li =
+                document.createElement(
+                    "li"
+                );
+
+            li.textContent =
+                name;
+
+            guestList.appendChild(
+                li
+            );
+
+        }
+    );
+
+
+    result.style.display =
+        "block";
+
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
 
 
 /* =====================================================
@@ -936,15 +1108,73 @@ guestInput.addEventListener("keydown", function(event) {
 
 function clearSearch() {
 
-    document.getElementById("guestName").value = "";
+    guestInput.value = "";
 
-    document.getElementById("result").style.display = "none";
+    suggestionBox.innerHTML =
+        "";
 
-    suggestionBox.innerHTML = "";
+    suggestionBox.style.display =
+        "none";
 
-    suggestionBox.style.display = "none";
+
+    document.getElementById(
+        "result"
+    ).style.display =
+        "none";
 
 }
+
+
+/* =====================================================
+   CLOSE SUGGESTIONS
+   WHEN CLICKING OUTSIDE
+   ===================================================== */
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            !guestInput.contains(
+                event.target
+            ) &&
+            !suggestionBox.contains(
+                event.target
+            )
+        ) {
+
+            suggestionBox.style.display =
+                "none";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ENTER KEY FOR GUEST SEARCH
+   ===================================================== */
+
+guestInput.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            event.preventDefault();
+
+            suggestionBox.style.display =
+                "none";
+
+            findGuest();
+
+        }
+
+    }
+);
 
 
 /* =====================================================
@@ -954,12 +1184,16 @@ function clearSearch() {
 function findTable() {
 
     const input =
-        document.getElementById("tableNumberInput").value.trim();
+        document.getElementById(
+            "tableNumberInput"
+        ).value.trim();
 
 
     if (!input) {
 
-        alert("Please enter a table number.");
+        alert(
+            "Please enter a table number."
+        );
 
         return;
     }
@@ -969,44 +1203,74 @@ function findTable() {
         input.padStart(2, "0");
 
 
-    if (!seating[table]) {
+    if (
+        !seating[table]
+    ) {
 
-        alert("Table " + parseInt(table) + " was not found.");
+        alert(
+            "Table " +
+            parseInt(table) +
+            " was not found."
+        );
 
         return;
     }
 
 
     const tableResult =
-        document.getElementById("tableResult");
+        document.getElementById(
+            "tableResult"
+        );
+
 
     const tableTitle =
-        document.getElementById("tableTitle");
+        document.getElementById(
+            "tableTitle"
+        );
+
 
     const tableGuestList =
-        document.getElementById("tableGuestList");
+        document.getElementById(
+            "tableGuestList"
+        );
 
 
     tableTitle.textContent =
-        "Table " + parseInt(table);
+        "Table " +
+        parseInt(table);
 
 
-    tableGuestList.innerHTML = "";
+    tableGuestList.innerHTML =
+        "";
 
 
-    seating[table].forEach(function(name) {
+    seating[table].forEach(
+        function (name) {
 
-        const li =
-            document.createElement("li");
+            const li =
+                document.createElement(
+                    "li"
+                );
 
-        li.textContent = name;
+            li.textContent =
+                name;
 
-        tableGuestList.appendChild(li);
+            tableGuestList.appendChild(
+                li
+            );
 
+        }
+    );
+
+
+    tableResult.style.display =
+        "block";
+
+
+    tableResult.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
     });
-
-
-    tableResult.style.display = "block";
 
 }
 
@@ -1016,18 +1280,28 @@ function findTable() {
    ===================================================== */
 
 document
-    .getElementById("tableNumberInput")
-    .addEventListener("keydown", function(event) {
+    .getElementById(
+        "tableNumberInput"
+    )
+    .addEventListener(
+        "keydown",
+        function (event) {
 
-        if (event.key === "Enter") {
+            if (
+                event.key === "Enter"
+            ) {
 
-            findTable();
+                event.preventDefault();
+
+                findTable();
+
+            }
 
         }
-
-    });
+    );
 
 </script>
+
 
 </body>
 </html>
