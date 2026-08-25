@@ -1,1 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Dilhara & Deelaka | Wedding Seating</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#f7f3ee;
+    color:#3d3935;
+    font-family:Georgia,"Times New Roman",serif;
+}
+
+.hero{
+    min-height:100vh;
+    padding:25px 15px 45px;
+    background:
+    radial-gradient(circle at 50% 10%,#fff,#f7f3ee 55%,#e9dfd4);
+}
+
+.container{
+    width:100%;
+    max-width:650px;
+    margin:auto;
+}
+
+header{
+    text-align:center;
+    padding:25px 10px 20px;
+}
+
+.small-title{
+    font-size:12px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#8b7a69;
+    margin-bottom:18px;
+}
+
+.names{
+    font-size:42px;
+    font-weight:normal;
+    margin:0;
+}
+
+.heart{
+    font-size:23px;
+    color:#a49484;
+    margin:10px 0;
+}
+
+.date{
+    font-size:16px;
+    letter-spacing:2px;
+    margin-top:12px;
+}
+
+.venue{
+    font-size:14px;
+    color:#777;
+    margin-top:8px;
+}
+
+.divider{
+    width:55px;
+    height:1px;
+    background:#b9aa9b;
+    margin:25px auto;
+}
+
+.couple-photo{
+    width:100%;
+    max-height:330px;
+    object-fit:cover;
+    border-radius:14px;
+    display:block;
+    margin:0 auto 25px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.intro{
+    text-align:center;
+    font-size:15px;
+    line-height:1.7;
+    color:#666;
+    margin:0 auto 28px;
+}
+
+.card{
+    background:white;
+    padding:28px 22px;
+    border-radius:16px;
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+    margin-bottom:25px;
+    border:1px solid #e5ddd5;
+}
+
+.card-title{
+    text-align:center;
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.card-subtitle{
+    text-align:center;
+    color:#777;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.search-wrapper{
+    position:relative;
+}
+
+#guestName{
+    width:100%;
+    padding:16px;
+    border:1px solid #d8cec4;
+    border-radius:9px;
+    font-size:16px;
+    font-family:inherit;
+    outline:none;
+}
+
+#guestName:focus{
+    border-color:#9e8b76;
+}
+
+#suggestionBox{
+    position:absolute;
+    left:0;
+    right:0;
+    top:calc(100% + 5px);
+    background:white;
+    border:1px solid #ddd;
+    border-radius:9px;
+    max-height:230px;
+    overflow-y:auto;
+    z-index:9999;
+    display:none;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.suggestion{
+    padding:13px 15px;
+    border-bottom:1px solid #eee;
+    cursor:pointer;
+    text-align:left;
+    font-size:15px;
+}
+
+.suggestion:hover{
+    background:#f7f3ee;
+}
+
+.button-row{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+button{
+    flex:1;
+    padding:15px;
+    border:0;
+    border-radius:9px;
+    font-family:inherit;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.primary{
+    background:#6e6255;
+    color:white;
+}
+
+.secondary{
+    background:#eee9e3;
+    color:#555;
+}
+
+#result{
+    display:none;
+    margin-bottom:25px;
+}
+
+.result-card{
+    background:white;
+    padding:28px 22px;
+    border-radius:16px;
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+    text-align:center;
+}
+
+.result-label{
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#888;
+}
+
+.table-number{
+    font-size:48px;
+    color:#6e6255;
+    margin:8px 0;
+}
+
+.guest-found{
+    font-size:19px;
+    margin-bottom:22px;
+}
+
+.guest-title{
+    font-size:14px;
+    color:#777;
+    margin-bottom:10px;
+}
+
+.guest-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    text-align:left;
+}
+
+.guest-list li{
+    padding:11px;
+    border-bottom:1px solid #eee;
+    font-size:15px;
+}
+
+.table-menu{
+    background:white;
+    padding:25px 20px;
+    border-radius:16px;
+    box-shadow:0 8px 30px rgba(0,0,0,.05);
+    margin-bottom:25px;
+}
+
+.table-menu h3{
+    text-align:center;
+    font-weight:normal;
+    margin:0 0 18px;
+    font-size:22px;
+}
+
+.table-buttons{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:9px;
+}
+
+.table-btn{
+    padding:12px 5px;
+    border:1px solid #d8cec4;
+    background:#faf8f5;
+    color:#555;
+    border-radius:8px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:14px;
+}
+
+.table-btn:hover{
+    background:#6e6255;
+    color:white;
+}
+
+.table-search{
+    background:white;
+    padding:25px 20px;
+    border-radius:16px;
+    box-shadow:0 8px 30px rgba(0,0,0,.05);
+    margin-bottom:25px;
+}
+
+.table-search h3{
+    text-align:center;
+    font-weight:normal;
+    margin:0 0 18px;
+    font-size:22px;
+}
+
+#tableNumberInput{
+    width:100%;
+    padding:15px;
+    border:1px solid #d8cec4;
+    border-radius:9px;
+    font-size:16px;
+    text-align:center;
+    font-family:inherit;
+}
+
+.message{
+    text-align:center;
+    color:#666;
+    font-size:14px;
+    line-height:1.7;
+    padding:10px 5px 30px;
+}
+
+footer{
+    text-align:center;
+    color:#999;
+    font-size:12px;
+    letter-spacing:1px;
+    padding:20px;
+}
+
+@media(max-width:600px){
+
+    .names{
+        font-size:34px;
+    }
+
+    .hero{
+        padding:15px 12px 35px;
+    }
+
+    .card,
+    .result-card,
+    .table-menu,
+    .table-search{
+        padding:22px 17px;
+    }
+
+    .button-row{
+        flex-direction:column;
+    }
+
+    .table-buttons{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .table-number{
+        font-size:43px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<header>
+
+    <div class="small-title">
+        Wedding Seating
+    </div>
+
+    <h1 class="names">
+        Dilhara & Deelaka
+    </h1>
+
+    <div class="heart">♡</div>
+
+    <div class="date">
+        26th August 2026
+    </div>
+
+    <div class="venue">
+        Anantara Kalutara
+    </div>
+
+    <div class="divider"></div>
+
+</header>
+
+<main class="container">
+
+<!-- PHOTO -->
+<!-- We will fix the exact photo filename after the seating works. -->
+
+<div class="intro">
+
+    Dear Family & Friends,<br><br>
+
+    We are so excited to celebrate our special day with you! 🤍
+
+    <br><br>
+
+    To make your arrival easier, please find your assigned
+    table below.
+
+</div>
+
+<section class="card">
+
+    <div class="card-title">
+        Find Your Table
+    </div>
+
+    <div class="card-subtitle">
+        Start typing your name and select it from the suggestions.
+    </div>
+
+    <div class="search-wrapper">
+
+        <input
+            type="text"
+            id="guestName"
+            placeholder="Start typing your name..."
+            autocomplete="off"
+        >
+
+        <div id="suggestionBox"></div>
+
+    </div>
+
+    <div class="button-row">
+
+        <button class="primary" onclick="findGuest()">
+            FIND MY TABLE
+        </button>
+
+        <button class="secondary" onclick="clearSearch()">
+            CLEAR
+        </button>
+
+    </div>
+
+</section>
+
+<section id="result">
+
+    <div class="result-card">
+
+        <div class="result-label">
+            Your Assigned Table
+        </div>
+
+        <div id="tableNumber" class="table-number"></div>
+
+        <div id="guestFound" class="guest-found"></div>
+
+        <div class="guest-title">
+            Guests seated at this table
+        </div>
+
+        <ul id="guestList" class="guest-list"></ul>
+
+    </div>
+
+</section>
+
+<section class="table-menu">
+
+    <h3>View Tables</h3>
+
+    <div class="table-buttons">
+
+        <button class="table-btn" onclick="showTableByNumber('01')">01</button>
+        <button class="table-btn" onclick="showTableByNumber('02')">02</button>
+        <button class="table-btn" onclick="showTableByNumber('03')">03</button>
+        <button class="table-btn" onclick="showTableByNumber('04')">04</button>
+
+        <button class="table-btn" onclick="showTableByNumber('05')">05</button>
+        <button class="table-btn" onclick="showTableByNumber('06')">06</button>
+        <button class="table-btn" onclick="showTableByNumber('07')">07</button>
+        <button class="table-btn" onclick="showTableByNumber('08')">08</button>
+
+        <button class="table-btn" onclick="showTableByNumber('09')">09</button>
+        <button class="table-btn" onclick="showTableByNumber('10')">10</button>
+        <button class="table-btn" onclick="showTableByNumber('11')">11</button>
+        <button class="table-btn" onclick="showTableByNumber('12')">12</button>
+
+        <button class="table-btn" onclick="showTableByNumber('13')">13</button>
+        <button class="table-btn" onclick="showTableByNumber('14')">14</button>
+        <button class="table-btn" onclick="showTableByNumber('15')">15</button>
+        <button class="table-btn" onclick="showTableByNumber('16')">16</button>
+
+        <button class="table-btn" onclick="showTableByNumber('17')">17</button>
+
+    </div>
+
+</section>
+
+<section class="table-search">
+
+    <h3>Search by Table Number</h3>
+
+    <input
+        type="number"
+        id="tableNumberInput"
+        placeholder="Enter 1 - 17"
+        min="1"
+        max="17"
+    >
+
+    <div class="button-row">
+
+        <button class="primary" onclick="findTable()">
+            VIEW TABLE
+        </button>
+
+    </div>
+
+</section>
+
+<div class="message">
+
+    We can't wait to celebrate with you! 🤍
+    <br>
+    Have a wonderful time and enjoy the celebration.
+
+</div>
+
+</main>
+
+<footer>
+    Dilhara & Deelaka · 26.08.2026
+</footer>
+
+</section>
+
+<script>
+
+const seating = {
+
+"01":[
+"Bride's Mom",
+"Bride's Dad",
+"Groom's Mom",
+"Mr. Suvin & family",
+"Mr. Udugama Sooriya & family",
+"Bride's grand mother",
+"Groom's grand mother"
+],
+
+"02":[
+"Mr. & Mrs Kapila Guruge",
+"Mr. & Mrs Madhawa",
+"Mr. & Mrs Manamperi",
+"Mr. & Mrs Ranga",
+"Mr. & Mrs Raju"
+],
+
+"03":[
+"Mr. Pasindu Dilshan",
+"Ms. Parami",
+"Ms. Nilani",
+"Thisali Sethumina",
+"Kevin Nethusha",
+"Kemal Renuja",
+"Sayul",
+"Nethumi",
+"Yugeeth",
+"Sageeth"
+],
+
+"04":[
+"Mr. & Mrs Abeysingha Pathirana",
+"Mr. & Mrs Niroshan Rajapaksha",
+"Damindu Viduranga",
+"Mr. Sumith Jayalal & family",
+"Mrs. Pathmi Guruge",
+"Mrs. Amarawathi"
+],
+
+"05":[
+"Ms. Akila Nimni Jayawardane",
+"Mr. & Mrs Kaluthara & family",
+"Mr. & Mrs Abeygunawardane & family",
+"Mr. & Mrs Viraj De Silva & family"
+],
+
+"06":[
+"Mrs. Pathmini Nanayakkarawasan",
+"Mr. Ajith De Silva",
+"Mr. & Mrs Chandrasiri Nanayakkarawasan",
+"Mr. & Mrs Premasiri Nanayakkarawasan",
+"Mr. & Mrs Ariyarathne Nanayakkarawasan",
+"Mrs. Shanthi Nanayakkarawasan",
+"Mr. Dayarathne"
+],
+
+"07":[
+"Mrs. Monika Rodrigo & family",
+"Mr. & Mrs. Wasantha Rodrigo",
+"Mr. & Mrs. Kapila Rodrigo",
+"Mrs. Dhanaseeli De Silva",
+"Mrs. Shanthi De Silva"
+],
+
+"08":[
+"Mrs. Ramya Mendis",
+"Mrs. Sachi Prashani & family",
+"Mr. & Mrs. Sripal (Lokka mama)",
+"Mr. Wickramasinghe & Mrs. Nikini",
+"Mr. & Mrs. Harischandra & family"
+],
+
+"09":[
+"Mrs. Ginige & Mr. Ravindra",
+"Mrs. Ashelma Gunasekara",
+"Mrs. Chandani & family",
+"Mr. Cency & family",
+"Mr. Shantha De Silva"
+],
+
+"10":[
+"Mrs. Soma Dissanayake",
+"Mrs. Inoka dissanayake & family",
+"Mrs. Rasika Dissanayake & family",
+"Mr. Pradeep & Mrs. Wijesinghe",
+"Mrs. Kalyani (Nona)",
+"Mr. Sanjeewa & Mrs Daneshika",
+"Mrs. Pushpa"
+],
+
+"11":[
+"Mr. & Mrs. Lokugamahewa",
+"Mr. & Mrs. Abrew",
+"Mr. & Mrs. Deevan",
+"Mr. Parakrama",
+"Mr. Shammi",
+"Mr. Sakun & Mrs. Eashani"
+],
+
+"12":[
+"Mr. & Mrs. Vinod",
+"Mr. & Mrs. Banuka",
+"Mrs. Harshika",
+"Mrs. & Mrs. Shamika",
+"Manasa De Silva",
+"Theviru De Silva",
+"Senitha Helambage"
+],
+
+"13":[
+"Mr. Suneth Gayan",
+"Mr. Upul Tharanga & family",
+"Mr. Rukmal & family",
+"Mr. & Mrs. Wedaarachchi",
+"Mr. & Mrs. Thanura Helambage",
+"Mrs. Deepa Nilanthi"
+],
+
+"14":[
+"Mr. Lalith Helambage & family",
+"Mr. Levan Helambage & family",
+"Mr. Chalitha Helambage & family"
+],
+
+"15":[
+"Mr. & Mrs Sithum Weerasinghe",
+"Mr. Weerasinghe & family",
+"Mr. Ranul Deelaka",
+"Mr. Dinith Gunawardane",
+"Mr. Ravindu & family",
+"Mr. & Mrs. Tharindu Gishan"
+],
+
+"16":[
+"Mr. Chamod Sahantha",
+"Mr. Dhanuka Gamage",
+"Mr. Pasan Tharinda",
+"Mr. Mavindu Nethsara",
+"Mr. Hirun Abrew",
+"Mr. Malith Sandaru",
+"Mr. Madushitha Mendis",
+"Mr. Ovin Janitha",
+"Ashan Lakshitha",
+"Mr. Tharush De Silva"
+],
+
+"17":[
+"Mr. & Mrs. Indika De silva (Shoi akka)",
+"Mrs. Indra (Podi Achchi)",
+"Mr. & Mrs. Dimuthu Kushan (Anju Nanda)",
+"Mr. & Mrs. Indika Kusalapriya"
+]
+
+};
+
+function cleanName(name){
+
+    return String(name || "")
+    .toLowerCase()
+    .replace(/mrs\.?/g," ")
+    .replace(/mr\.?/g," ")
+    .replace(/ms\.?/g," ")
+    .replace(/&/g," ")
+    .replace(/family/g," ")
+    .replace(/[().,'’]/g," ")
+    .replace(/\s+/g," ")
+    .trim();
+
+}
+
+const guestInput =
+document.getElementById("guestName");
+
+const suggestionBox =
+document.getElementById("suggestionBox");
+
+guestInput.addEventListener("input",function(){
+
+    const typed=cleanName(this.value);
+
+    suggestionBox.innerHTML="";
+
+    if(!typed){
+        suggestionBox.style.display="none";
+        return;
+    }
+
+    const matches=[];
+
+    for(const table in seating){
+
+        for(const guest of seating[table]){
+
+            if(cleanName(guest).includes(typed)){
+
+                matches.push({
+                    name:guest,
+                    table:table
+                });
+
+            }
+        }
+    }
+
+    const seen=new Set();
+
+    matches.forEach(function(item){
+
+        const key=item.name.toLowerCase();
+
+        if(seen.has(key)) return;
+
+        seen.add(key);
+
+        const div=document.createElement("div");
+
+        div.className="suggestion";
+        div.textContent=item.name;
+
+        div.onclick=function(){
+
+            guestInput.value=item.name;
+
+            suggestionBox.style.display="none";
+
+            showGuestTable(item.table,item.name);
+
+        };
+
+        suggestionBox.appendChild(div);
+
+    });
+
+    if(suggestionBox.children.length){
+        suggestionBox.style.display="block";
+    }else{
+        suggestionBox.style.display="none";
+    }
+
+});
+
+function findGuest(){
+
+    const typed=cleanName(guestInput.value);
+
+    if(!typed){
+        alert("Please enter your name.");
+        return;
+    }
+
+    let foundTable=null;
+    let foundGuest=null;
+
+    for(const table in seating){
+
+        for(const guest of seating[table]){
+
+            if(cleanName(guest).includes(typed)){
+
+                foundTable=table;
+                foundGuest=guest;
+                break;
+
+            }
+        }
+
+        if(foundTable) break;
+    }
+
+    if(!foundTable){
+
+        alert(
+            "Sorry, we couldn't find that name. Please try another part of your name."
+        );
+
+        return;
+    }
+
+    showGuestTable(foundTable,foundGuest);
+
+}
+
+function showGuestTable(table,guest){
+
+    const result=document.getElementById("result");
+
+    document.getElementById("tableNumber").textContent=
+    "Table "+parseInt(table);
+
+    document.getElementById("guestFound").textContent=
+    guest;
+
+    const list=document.getElementById("guestList");
+
+    list.innerHTML="";
+
+    seating[table].forEach(function(name){
+
+        const li=document.createElement("li");
+
+        li.textContent=name;
+
+        list.appendChild(li);
+
+    });
+
+    result.style.display="block";
+
+    result.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+function showTableByNumber(table){
+
+    document.getElementById("tableNumber").textContent=
+    "Table "+parseInt(table);
+
+    document.getElementById("guestFound").textContent=
+    "Table "+parseInt(table);
+
+    const list=document.getElementById("guestList");
+
+    list.innerHTML="";
+
+    seating[table].forEach(function(name){
+
+        const li=document.createElement("li");
+
+        li.textContent=name;
+
+        list.appendChild(li);
+
+    });
+
+    document.getElementById("result").style.display="block";
+
+    document.getElementById("result").scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+function clearSearch(){
+
+    guestInput.value="";
+
+    suggestionBox.innerHTML="";
+
+    suggestionBox.style.display="none";
+
+    document.getElementById("result").style.display="none";
+
+}
+
+function findTable(){
+
+    let input=document.getElementById(
+        "tableNumberInput"
+    ).value.trim();
+
+    if(!input){
+
+        alert("Please enter a table number.");
+
+        return;
+    }
+
+    const table=input.padStart(2,"0");
+
+    if(!seating[table]){
+
+        alert(
+            "Please enter a table number from 1 to 17."
+        );
+
+        return;
+    }
+
+    showTableByNumber(table);
+
+}
+
+guestInput.addEventListener("keydown",function(event){
+
+    if(event.key==="Enter"){
+
+        event.preventDefault();
+
+        suggestionBox.style.display="none";
+
+        findGuest();
+
+    }
+
+});
+
+document.getElementById(
+    "tableNumberInput"
+).addEventListener("keydown",function(event){
+
+    if(event.key==="Enter"){
+
+        event.preventDefault();
+
+        findTable();
+
+    }
+
+});
+
+document.addEventListener("click",function(event){
+
+    if(
+        !guestInput.contains(event.target) &&
+        !suggestionBox.contains(event.target)
+    ){
+
+        suggestionBox.style.display="none";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
