@@ -394,44 +394,54 @@ function cleanName(name){
 }
 
 
-/* Guest name autocomplete */
+/* Guest name search suggestions */
 
 const guestInput = document.getElementById("guestName");
 
-const guestSuggestions = document.createElement("datalist");
-guestSuggestions.id = "guestSuggestions";
-document.body.appendChild(guestSuggestions);
+const suggestionBox = document.createElement("div");
+suggestionBox.id = "suggestionBox";
 
-guestInput.setAttribute("list", "guestSuggestions");
+suggestionBox.style.background = "#fff";
+suggestionBox.style.border = "1px solid #ccc";
+suggestionBox.style.maxHeight = "200px";
+suggestionBox.style.overflowY = "auto";
+suggestionBox.style.position = "relative";
+suggestionBox.style.zIndex = "1000";
+
+guestInput.parentNode.appendChild(suggestionBox);
 
 guestInput.addEventListener("input", function () {
 
   const typed = cleanName(this.value).toLowerCase();
 
-  guestSuggestions.innerHTML = "";
+  suggestionBox.innerHTML = "";
 
   if (!typed) return;
 
-  const names = [];
-
   for (const table in seating) {
+
     for (const guest of seating[table]) {
 
       if (cleanName(guest).toLowerCase().includes(typed)) {
-        names.push(guest);
-      }
 
+        const item = document.createElement("div");
+
+        item.textContent = guest;
+
+        item.style.padding = "12px";
+        item.style.cursor = "pointer";
+        item.style.borderBottom = "1px solid #eee";
+
+        item.addEventListener("click", function () {
+
+          guestInput.value = guest;
+          suggestionBox.innerHTML = "";
+
+        });
+
+        suggestionBox.appendChild(item);
+      }
     }
   }
-
-  names.slice(0, 10).forEach(name => {
-
-    const option = document.createElement("option");
-
-    option.value = name;
-
-    guestSuggestions.appendChild(option);
-
-  });
-
 });
+    
