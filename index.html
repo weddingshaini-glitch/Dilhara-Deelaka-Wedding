@@ -404,28 +404,34 @@ document.body.appendChild(guestSuggestions);
 
 guestInput.setAttribute("list", "guestSuggestions");
 
-guestInput.addEventListener("input", function(){
+guestInput.addEventListener("input", function () {
 
   const typed = cleanName(this.value).toLowerCase();
 
   guestSuggestions.innerHTML = "";
 
-  if(!typed) return;
+  if (!typed) return;
 
   const names = [];
-for (const table in seating) {
-  for (const guest of seating[table]) {
-    if (cleanName(guest).toLowerCase().startsWith(typed)) {
-      names.push(guest);
+
+  for (const table in seating) {
+    for (const guest of seating[table]) {
+
+      if (cleanName(guest).toLowerCase().includes(typed)) {
+        names.push(guest);
+      }
+
     }
   }
-}
 
-names.slice(0, 10).forEach(name => {
-  const option = document.createElement("option");
-  option.value = name;
-  guestSuggestions.appendChild(option);
-});
- 
+  names.slice(0, 10).forEach(name => {
+
+    const option = document.createElement("option");
+
+    option.value = name;
+
+    guestSuggestions.appendChild(option);
+
+  });
 
 });
