@@ -394,98 +394,38 @@ function cleanName(name){
 }
 
 
-function findTable(){
+/* Guest name autocomplete */
 
-  const input =
-    document.getElementById("guestName").value.trim();
+const guestInput = document.getElementById("guestName");
 
-  const result =
-    document.getElementById("result");
+const guestSuggestions = document.createElement("datalist");
+guestSuggestions.id = "guestSuggestions";
+document.body.appendChild(guestSuggestions);
 
-  if(!input){
-    result.innerHTML =
-      '<div class="error">Please enter your name.</div>';
-    return;
-  }
+guestInput.setAttribute("list", "guestSuggestions");
 
-  const searchName = cleanName(input);
+guestInput.addEventListener("input", function(){
 
-  let matches = [];
+  const typed = cleanName(this.value).toLowerCase();
 
-  for(const table in seating){
+  guestSuggestions.innerHTML = "";
 
-    for(const guest of seating[table]){
+  if(!typed) return;
 
-      const guestName = cleanName(guest);
-
-      if(guestName.includes(searchName)){
-
-        matches.push({
-          name: guest,
-          table: table
-        });
-
-      }
-
+  const names = [];
+for (const table in seating) {
+  for (const guest of seating[table]) {
+    if (cleanName(guest).toLowerCase().startsWith(typed)) {
+      names.push(guest);
     }
-
   }
-
-  if(matches.length > 0){
-
-    result.innerHTML = `
-      <div class="result">
-        <small>Matching guests</small>
-
-        ${matches.map(match => `
-          <div style="
-            padding:12px 0;
-            border-bottom:1px solid #ded2c5;
-          ">
-            <div style="font-size:17px;">
-              ${match.name}
-            </div>
-
-            <div style="
-              font-size:14px;
-              margin-top:5px;
-              opacity:.65;
-            ">
-              TABLE ${match.table}
-            </div>
-          </div>
-        `).join("")}
-
-      </div>
-    `;
-
-  }else{
-
-    result.innerHTML = `
-      <div class="error">
-        We couldn't find a matching name.<br>
-        Please check the spelling and try again.
-      </div>
-    `;
-
-  }
-
 }
 
+names.slice(0, 10).forEach(name => {
+  const option = document.createElement("option");
+  option.value = name;
+  guestSuggestions.appendChild(option);
+});
+ 
 
-/* Allow guests to press ENTER */
-
-document
-  .getElementById("guestName")
-  .addEventListener("keydown", function(event){
-
-    if(event.key === "Enter"){
-      findTable();
-    }
-
-  });
-
-</script>
-
-</body>
-</html>
+});
