@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7f3ee">
+<title>Dilhara & Deelaka | Wedding Seating</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f7f3ee;color:#3d3935;font-family:Georgia,"Times New Roman",serif}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px 18px;
+background:radial-gradient(circle at 50% 20%,#fff,#f4eee7 55%,#e9dfd4)}
+.card{width:min(620px,100%);text-align:center;background:rgba(255,255,255,.88);padding:54px 28px;border:1px solid #ded2c5;box-shadow:0 18px 60px rgba(60,45,30,.10)}
+.eyebrow{font-size:12px;letter-spacing:5px;text-transform:uppercase;opacity:.65;margin-bottom:24px}
+.monogram{font-size:30px;letter-spacing:8px;margin-bottom:18px}
+h1{font-size:42px;font-weight:400;margin:0 0 10px}
+.date{font-size:17px;letter-spacing:2px;margin-bottom:8px}
+.venue{font-size:14px;opacity:.7;margin-bottom:35px}
+.divider{width:55px;height:1px;background:#b9aa9b;margin:0 auto 30px}
+.intro{font-size:16px;line-height:1.7;margin:0 auto 25px;max-width:440px}
+.search{display:flex;gap:10px;flex-direction:column}
+input{width:100%;padding:16px;border:1px solid #cfc1b4;background:#fff;font:16px Georgia,serif;text-align:center;outline:none}
+button{padding:16px;border:0;background:#3d3935;color:#fff;font:15px Georgia,serif;letter-spacing:1px;cursor:pointer}
+button:hover{opacity:.9}
+#result{min-height:90px;margin-top:24px}
+.result{border:1px solid #ded2c5;background:#fbf8f4;padding:20px}
+.result small{display:block;letter-spacing:2px;text-transform:uppercase;opacity:.65;margin-bottom:8px}
+.table{font-size:42px;margin-top:3px}
+.error{color:#8b4c4c;font-size:14px}
+.footer{margin-top:35px;font-size:12px;opacity:.55;letter-spacing:1px}
+@media(max-width:480px){h1{font-size:34px}.card{padding:42px 20px}.monogram{font-size:25px}}
+</style>
+</head>
+<body>
+<section class="hero">
+<main class="card">
+<div class="eyebrow">Wedding Celebration</div>
+<div class="monogram">D &amp; D</div>
+<h1>Dilhara &amp; Deelaka</h1>
+<div class="date">26th August 2026</div>
+<div class="venue">Anantara Kalutara</div>
+<div class="divider"></div>
+<p class="intro">We are delighted to celebrate our special day with you. Please enter your name below to find your assigned table.</p>
+
+<div class="search">
+<input id="nameInput" type="text" placeholder="Enter your full name" autocomplete="off">
+<button onclick="findTable()">FIND MY TABLE</button>
+</div>
+<div id="result"></div>
+
+<div class="footer">With love, Dilhara &amp; Deelaka</div>
+</main>
+</section>
+
+<script>
+/* ================================
+   ADD YOUR GUESTS HERE
+   Example:
+   {name:"Nimal Perera",table:"7"},
+   {name:"Shalini Perera",table:"7"},
+   ================================= */
+const guests = [
+  // Add guest names and table numbers here
+];
+
+function norm(v){return v.trim().toLowerCase().replace(/\s+/g," ");}
+
+function findTable(){
+  const q=norm(document.getElementById("nameInput").value);
+  const out=document.getElementById("result");
+
+  if(!q){
+    out.innerHTML='<div class="error">Please enter your name.</div>';
+    return;
+  }
+
+  const matches=guests.filter(g=>norm(g.name).includes(q));
+
+  if(matches.length===0){
+    out.innerHTML='<div class="error">We could not find your name. Please check the spelling and try again.</div>';
+    return;
+  }
+
+  const tables=[...new Set(matches.map(g=>g.table))];
+  if(tables.length>1){
+    out.innerHTML='<div class="error">More than one guest matches. Please enter your full name.</div>';
+    return;
+  }
+
+  const g=matches[0];
+  out.innerHTML=`<div class="result">
+    <small>Welcome, ${esc(g.name)}</small>
+    <div>Your assigned table</div>
+    <div class="table"><strong>${esc(g.table)}</strong></div>
+  </div>`;
+}
+
+function esc(v){
+  return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+}
+
+document.getElementById("nameInput").addEventListener("keydown",e=>{
+  if(e.key==="Enter") findTable();
+});
+</script>
+</body>
+</html>
